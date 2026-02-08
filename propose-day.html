@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be Mine? 💕 | Propose Day 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Noto Sans Devanagari', serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        /* Floating Hearts Background */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float-up 8s infinite;
+            opacity: 0;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, rgba(255,182,193,0.9) 0%, rgba(255,105,180,0.9) 100%);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 50px;
+            animation: fadeIn 2s ease-out;
+            font-style: italic;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #fff, #ffe6f0);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-section h2 {
+            font-size: 2.5rem;
+            color: #d63384;
+            margin-bottom: 40px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: zoomIn 1s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        /* Poem Section */
+        .poem-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #ffeef8 0%, #fff5f7 100%);
+            position: relative;
+            z-index: 2;
+        }
+
+        .poem-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(214,51,132,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .poem-container::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 120px;
+            color: #ffe6f0;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .poem-container h2 {
+            font-size: 2.5rem;
+            color: #d63384;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .poem-text {
+            font-size: 1.8rem;
+            line-height: 2.2;
+            color: #444;
+            text-align: center;
+            font-family: 'Noto Sans Devanagari', serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .poem-line {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            margin-bottom: 20px;
+        }
+
+        .poem-line:nth-child(1) { animation-delay: 0.5s; }
+        .poem-line:nth-child(2) { animation-delay: 1s; }
+        .poem-line:nth-child(3) { animation-delay: 1.5s; }
+        .poem-line:nth-child(4) { animation-delay: 2s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Proposal Section */
+        .proposal-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+            position: relative;
+            z-index: 2;
+        }
+
+        .proposal-box {
+            background: #fff;
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 600px;
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .proposal-box h2 {
+            font-size: 3rem;
+            color: #d63384;
+            margin-bottom: 30px;
+        }
+
+        .proposal-box p {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .proposal-btn {
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(245,87,108,0.4);
+        }
+
+        .btn-yes:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(245,87,108,0.6);
+        }
+
+        .btn-absolutely {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(250,112,154,0.4);
+        }
+
+        .btn-absolutely:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(250,112,154,0.6);
+        }
+
+        .btn-ofcourse {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #d63384;
+            box-shadow: 0 10px 30px rgba(255,154,158,0.4);
+        }
+
+        .btn-ofcourse:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255,154,158,0.6);
+        }
+
+        /* Celebration Overlay */
+        .celebration-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .celebration-content {
+            text-align: center;
+            animation: celebrationPop 1s ease-out;
+        }
+
+        @keyframes celebrationPop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .celebration-content h1 {
+            font-size: 5rem;
+            color: #d63384;
+            margin-bottom: 30px;
+        }
+
+        .celebration-content p {
+            font-size: 2rem;
+            color: #666;
+        }
+
+        /* Reasons Section */
+        .reasons-section {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #fff, #ffe6f0);
+            position: relative;
+            z-index: 2;
+        }
+
+        .reasons-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #d63384;
+            margin-bottom: 50px;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reason-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(214,51,132,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(214,51,132,0.3);
+        }
+
+        .reason-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .reason-card h3 {
+            font-size: 1.5rem;
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+
+        .reason-card p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .music-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(245,87,108,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(245,87,108,0.6);
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #f0f;
+            position: absolute;
+            animation: confetti-fall 3s linear;
+            z-index: 10000;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .poem-text {
+                font-size: 1.4rem;
+            }
+
+            .video-container iframe {
+                height: 300px;
+            }
+
+            .proposal-box h2 {
+                font-size: 2rem;
+            }
+
+            .celebration-content h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts -->
+    <div class="hearts-container" id="hearts"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>💕 Propose Day 2026 💕</h1>
+        <p class="tagline">A moment to treasure forever...</p>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <h2>✨ Our Story ✨</h2>
+        <div class="video-container">
+            <iframe src="https://drive.google.com/file/d/1mWfOmfTH_6uyMzwG1YS__s3nRhOmjn3i/preview" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Poem Section -->
+    <section class="poem-section">
+        <div class="poem-container">
+            <h2>💌 मेरे दिल की बात 💌</h2>
+            <div class="poem-text">
+                <p class="poem-line">दिल की पुरानी आरज़ू का आज इज़हार करता हूँ,</p>
+                <p class="poem-line">मैं अपनी रूह का हर कोना तेरे नाम करता हूँ।</p>
+                <p class="poem-line">अधुरा है अक्षित तुम्हारे बिना, इसे तुम मुकम्मल कर दो,</p>
+                <p class="poem-line">उम्र भर के लिए मेरी 'अंशिका' बन जाओ, और मुझे पूरा कर दो।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reasons Section -->
+    <section class="reasons-section">
+        <h2>💝 Why I Love You 💝</h2>
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <div class="reason-icon">😊</div>
+                <h3>Your Smile</h3>
+                <p>Your smile lights up my darkest days and fills my heart with joy.</p>
+            </div>
+            <div class="reason-card">
+                <div class="reason-icon">💫</div>
+                <h3>Your Presence</h3>
+                <p>Being with you feels like home, a place where I truly belong.</p>
+            </div>
+            <div class="reason-card">
+                <div class="reason-icon">❤️</div>
+                <h3>Your Heart</h3>
+                <p>Your kindness and compassion inspire me to be a better person every day.</p>
+            </div>
+            <div class="reason-card">
+                <div class="reason-icon">🌟</div>
+                <h3>Your Dreams</h3>
+                <p>I love how passionate you are about your dreams and aspirations.</p>
+            </div>
+            <div class="reason-card">
+                <div class="reason-icon">🎵</div>
+                <h3>Your Laughter</h3>
+                <p>Your laughter is the most beautiful melody I've ever heard.</p>
+            </div>
+            <div class="reason-card">
+                <div class="reason-icon">✨</div>
+                <h3>Everything</h3>
+                <p>Simply put, I love everything about you - past, present, and future.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proposal Section -->
+    <section class="proposal-section">
+        <div class="proposal-box">
+            <h2>💍 The Question 💍</h2>
+            <p>Anshika, you complete me in ways I never knew were possible. Every moment with you is a treasure, and I want to spend forever creating more beautiful memories together.</p>
+            <p style="font-size: 2rem; font-weight: bold; color: #d63384; margin: 30px 0;">Will You Be Mine? 💕</p>
+            <div class="button-container">
+                <button class="proposal-btn btn-yes" onclick="celebrate()">Yes! 💕</button>
+                <button class="proposal-btn btn-absolutely" onclick="celebrate()">Absolutely! 💖</button>
+                <button class="proposal-btn btn-ofcourse" onclick="celebrate()">Of Course! 💗</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Celebration Overlay -->
+    <div class="celebration-overlay" id="celebration">
+        <div class="celebration-content">
+            <h1>🎉 यायyyy! 🎉</h1>
+            <p>You've made me the happiest person alive! 💕</p>
+            <p style="margin-top: 30px; font-size: 1.5rem;">I love you, Anshika! ❤️</p>
+        </div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button class="music-toggle" onclick="toggleMusic()" id="musicBtn">🎵</button>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Floating Hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '💕';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            document.getElementById('hearts').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        setInterval(createHeart, 300);
+
+        // Music Toggle
+        let musicPlaying = false;
+        const music = document.getElementById('bgMusic');
+
+        function toggleMusic() {
+            if (musicPlaying) {
+                music.pause();
+                document.getElementById('musicBtn').innerHTML = '🎵';
+            } else {
+                music.play();
+                document.getElementById('musicBtn').innerHTML = '🔇';
+            }
+            musicPlaying = !musicPlaying;
+        }
+
+        // Celebration Function
+        function celebrate() {
+            const overlay = document.getElementById('celebration');
+            overlay.style.display = 'flex';
+
+            // Create confetti
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    createConfetti();
+                }, i * 30);
+            }
+
+            // Play music automatically
+            if (!musicPlaying) {
+                toggleMusic();
+            }
+        }
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.top = '-10px';
+            document.body.appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, 3000);
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reason-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

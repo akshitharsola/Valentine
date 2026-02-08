@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Anshika 💕 - Valentine's Day 2026</title>
+    <title>Valentine's Week 2026 💕 | For Anshika</title>
     <style>
         * {
             margin: 0;
@@ -14,43 +14,56 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             min-height: 100vh;
-            background: linear-gradient(135deg, #fce7f3 0%, #fecaca 50%, #ffe4e6 100%);
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe6f0 25%, #fce7f3 50%, #fecaca 75%, #ffe4e6 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 48rem;
-            margin: 0 auto;
-            padding: 1rem;
-            padding-top: 4rem;
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
-        /* Animations */
-        @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(110vh) rotate(360deg); opacity: 0.3; }
+        /* Floating Hearts Background */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
         }
 
-        @keyframes confetti {
-            0% { transform: translateY(-10vh) rotate(0deg) scale(0); opacity: 1; }
-            50% { opacity: 1; }
-            100% { transform: translateY(110vh) rotate(720deg) scale(1); opacity: 0; }
+        .floating-heart {
+            position: absolute;
+            font-size: 2rem;
+            animation: float-up 10s infinite;
+            opacity: 0;
         }
 
         @keyframes float-up {
-            0% { transform: translateY(100vh) translateX(0) scale(0.5); opacity: 0; }
-            50% { opacity: 0.5; }
-            100% { transform: translateY(-20vh) translateX(50px) scale(1); opacity: 0; }
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes heartbeat {
@@ -58,1273 +71,358 @@
             50% { transform: scale(1.15); }
         }
 
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(244, 63, 94, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(244, 63, 94, 0.8); }
-        }
-
         @keyframes sparkle {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
-        @keyframes heartbreak {
-            0% { transform: scale(1) rotate(0deg); opacity: 1; }
-            25% { transform: scale(1.2) rotate(-5deg); }
-            50% { transform: scale(1.3) rotate(5deg); }
-            75% { transform: scale(0.8) rotate(-10deg); opacity: 0.5; }
-            100% { transform: scale(0) rotate(0deg); opacity: 0; }
-        }
-
-        @keyframes shatter-left {
-            0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-            100% { transform: translate(-100px, 50px) rotate(-45deg); opacity: 0; }
-        }
-
-        @keyframes shatter-right {
-            0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-            100% { transform: translate(100px, 50px) rotate(45deg); opacity: 0; }
-        }
-
-        @keyframes tear-fall {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(200px); opacity: 0; }
-        }
-
-        @keyframes sad-shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            75% { transform: translateX(10px); }
-        }
-
-        .heartbreak {
-            animation: heartbreak 1s ease-out forwards;
-        }
-
-        .shatter-left {
-            animation: shatter-left 0.8s ease-out forwards;
-        }
-
-        .shatter-right {
-            animation: shatter-right 0.8s ease-out forwards;
-        }
-
-        .tear-fall {
-            animation: tear-fall 1.5s ease-in forwards;
-        }
-
-        .sad-shake {
-            animation: sad-shake 0.5s ease-in-out;
-        }
-
-        .animate-fall {
-            animation: fall linear infinite;
-        }
-
-        .animate-confetti {
-            animation: confetti ease-out forwards;
-        }
-
-        .animate-float-up {
-            animation: float-up linear infinite;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        .slide-in {
-            animation: slideIn 0.6s ease-out forwards;
-        }
-
-        .heartbeat {
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
-
-        .pulse-glow {
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-
-        .sparkle {
-            animation: sparkle 1.5s ease-in-out infinite;
-        }
-
-        /* Utility Classes */
-        .fixed {
-            position: fixed;
-        }
-
-        .absolute {
-            position: absolute;
-        }
-
-        .relative {
-            position: relative;
-        }
-
-        .inset-0 {
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        }
-
-        .pointer-events-none {
-            pointer-events: none;
-        }
-
-        .overflow-hidden {
-            overflow: hidden;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .inline-block {
-            display: inline-block;
-        }
-
-        .flex {
-            display: flex;
-        }
-
-        .items-center {
-            align-items: center;
-        }
-
-        .justify-center {
-            justify-content: center;
-        }
-
-        .flex-wrap {
-            flex-wrap: wrap;
-        }
-
-        .gap-2 {
-            gap: 0.5rem;
-        }
-
-        .gap-3 {
-            gap: 0.75rem;
-        }
-
-        .gap-6 {
-            gap: 1.5rem;
-        }
-
-        .space-y-4 > * + * {
-            margin-top: 1rem;
-        }
-
-        .space-y-6 > * + * {
-            margin-top: 1.5rem;
-        }
-
-        .space-y-8 > * + * {
-            margin-top: 2rem;
-        }
-
-        /* Card Styles */
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 1.5rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 2rem;
+            position: relative;
+            z-index: 2;
         }
 
-        .card-large {
-            padding: 3rem;
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            animation: fadeIn 1s ease-out;
         }
 
-        /* Button Styles */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            padding: 1.25rem 2.5rem;
-            font-size: 1.25rem;
-            font-weight: 700;
-            border-radius: 9999px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
+        .header h1 {
+            font-size: 4.5rem;
+            background: linear-gradient(135deg, #db2777 0%, #e11d48 50%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: heartbeat 2s ease-in-out infinite;
         }
 
-        .btn:hover {
-            transform: scale(1.1);
-        }
-
-        .btn-primary {
-            background: linear-gradient(to right, #ec4899, #f43f5e);
-            color: white;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(to right, #db2777, #e11d48);
-        }
-
-        .btn-success {
-            background: linear-gradient(to right, #10b981, #059669);
-            color: white;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            font-size: 1.5rem;
-            padding: 1.5rem 4rem;
-        }
-
-        .btn-danger {
-            background: linear-gradient(to right, #9ca3af, #6b7280);
-            color: white;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            font-size: 1.5rem;
-            padding: 1.5rem 4rem;
-        }
-
-        .btn-special {
-            background: linear-gradient(to right, #a855f7, #ec4899, #ef4444);
-            color: white;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            font-size: 1.5rem;
-            padding: 1.5rem 3rem;
-        }
-
-        /* Progress Bar */
-        .progress-container {
-            position: fixed;
-            top: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 40;
-            width: 16rem;
-        }
-
-        .progress-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 9999px;
-            padding: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .progress-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.25rem;
-            padding: 0 0.5rem;
-        }
-
-        .progress-bar {
-            background: #fce7f3;
-            border-radius: 9999px;
-            height: 0.75rem;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            background: linear-gradient(to right, #ec4899, #ef4444);
-            height: 100%;
-            transition: width 1s ease-out;
-        }
-
-        /* Quiz/Question Styles */
-        .question-card {
-            border: 2px solid #fbcfe8;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #fce7f3 0%, #ffe4e6 100%);
-        }
-
-        .option-label {
-            display: flex;
-            align-items: center;
-            padding: 1rem;
-            border-radius: 0.75rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: white;
-            border: 1px solid #fbcfe8;
-        }
-
-        .option-label:hover {
-            background: #fce7f3;
-            border-color: #f9a8d4;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .option-label.selected {
-            background: linear-gradient(to right, #f43f5e, #ec4899);
-            color: white;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transform: scale(1.05);
-            border-color: transparent;
-        }
-
-        .option-label input[type="radio"] {
-            margin-right: 0.75rem;
-            width: 1.25rem;
-            height: 1.25rem;
-            cursor: pointer;
-        }
-
-        /* Typography */
-        .text-sm {
-            font-size: 0.875rem;
-        }
-
-        .text-lg {
-            font-size: 1.125rem;
-        }
-
-        .text-xl {
-            font-size: 1.25rem;
-        }
-
-        .text-2xl {
-            font-size: 1.5rem;
-        }
-
-        .text-3xl {
-            font-size: 1.875rem;
-        }
-
-        .text-4xl {
-            font-size: 2.25rem;
-        }
-
-        .text-5xl {
-            font-size: 3rem;
-        }
-
-        .text-6xl {
-            font-size: 3.75rem;
-        }
-
-        .font-semibold {
+        .header .subtitle {
+            font-size: 1.8rem;
+            color: #be123c;
             font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
-        .font-bold {
-            font-weight: 700;
-        }
-
-        .italic {
+        .header .tagline {
+            font-size: 1.2rem;
+            color: #9f1239;
             font-style: italic;
         }
 
-        .leading-relaxed {
-            line-height: 1.625;
+        .header-emoji {
+            font-size: 3rem;
+            display: inline-block;
+            animation: sparkle 2s ease-in-out infinite;
         }
 
-        /* Colors */
-        .text-gray-600 {
-            color: #4b5563;
+        /* Days Grid */
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-bottom: 3rem;
         }
 
-        .text-gray-700 {
-            color: #374151;
+        /* Day Card */
+        .day-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
         }
 
-        .text-gray-800 {
-            color: #1f2937;
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(to right, #ec4899, #f43f5e);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
         }
 
-        .text-rose-600 {
+        .day-card.active {
+            cursor: pointer;
+        }
+
+        .day-card.active:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 40px -10px rgba(244, 63, 94, 0.3);
+        }
+
+        .day-card.active:hover::before {
+            transform: scaleX(1);
+        }
+
+        .day-card.disabled {
+            opacity: 0.5;
+            filter: grayscale(0.8);
+            cursor: not-allowed;
+        }
+
+        .day-icon {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            animation: heartbeat 3s ease-in-out infinite;
+        }
+
+        .day-date {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #9f1239;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .day-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
             color: #e11d48;
+            margin-bottom: 1rem;
         }
 
-        .text-red-500 {
-            color: #ef4444;
-        }
-
-        .text-green-600 {
-            color: #059669;
-        }
-
-        .bg-gradient-primary {
-            background: linear-gradient(to right, #ec4899, #f43f5e);
-        }
-
-        .bg-gradient-success {
-            background: linear-gradient(to right, #d1fae5, #a7f3d0);
-            border: 2px solid #6ee7b7;
-        }
-
-        .bg-gradient-love {
-            background: linear-gradient(to right, #fce7f3, #fee2e2);
-            border: 2px solid #fda4af;
-        }
-
-        .bg-gradient-poem {
-            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
-        }
-
-        .bg-countdown {
-            background: linear-gradient(to right, #ec4899, #f43f5e);
-            color: white;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            padding: 1rem;
+        .day-description {
+            text-align: center;
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.6;
             margin-bottom: 1.5rem;
         }
 
-        /* Spacing */
-        .mb-1 { margin-bottom: 0.25rem; }
-        .mb-2 { margin-bottom: 0.5rem; }
-        .mb-3 { margin-bottom: 0.75rem; }
-        .mb-4 { margin-bottom: 1rem; }
-        .mb-6 { margin-bottom: 1.5rem; }
-        .mb-8 { margin-bottom: 2rem; }
-        .mb-10 { margin-bottom: 2.5rem; }
-        .mt-3 { margin-top: 0.75rem; }
-        .mt-8 { margin-top: 2rem; }
-        .mt-10 { margin-top: 2.5rem; }
-        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-        .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
-        .p-6 { padding: 1.5rem; }
-        .p-8 { padding: 2rem; }
-        .p-10 { padding: 2.5rem; }
-
-        /* Borders */
-        .border-2 {
-            border-width: 2px;
-            border-style: solid;
-        }
-
-        .border-pink {
-            border-color: #fbcfe8;
-        }
-
-        .rounded-2xl {
-            border-radius: 1rem;
-        }
-
-        .rounded-full {
-            border-radius: 9999px;
-        }
-
-        /* Poem specific */
-        .poem-text {
-            font-family: Georgia, serif;
+        .day-status {
             text-align: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
-        /* Icons */
-        .icon {
-            width: 1.5rem;
-            height: 1.5rem;
+        .status-active {
+            background: linear-gradient(to right, #10b981, #059669);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+        }
+
+        .status-coming-soon {
+            background: #e2e8f0;
+            color: #64748b;
+        }
+
+        /* Stagger animations */
+        .day-card:nth-child(1) { animation-delay: 0.1s; }
+        .day-card:nth-child(2) { animation-delay: 0.2s; }
+        .day-card:nth-child(3) { animation-delay: 0.3s; }
+        .day-card:nth-child(4) { animation-delay: 0.4s; }
+        .day-card:nth-child(5) { animation-delay: 0.5s; }
+        .day-card:nth-child(6) { animation-delay: 0.6s; }
+        .day-card:nth-child(7) { animation-delay: 0.7s; }
+        .day-card:nth-child(8) { animation-delay: 0.8s; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #9f1239;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .footer-heart {
             display: inline-block;
-        }
-
-        .icon-lg {
-            width: 3rem;
-            height: 3rem;
-        }
-
-        .icon-xl {
-            width: 5rem;
-            height: 5rem;
-        }
-
-        .icon-2xl {
-            width: 6rem;
-            height: 6rem;
-        }
-
-        .icon-heart {
-            fill: #ef4444;
-            color: #ef4444;
-        }
-
-        .icon-sparkles {
-            fill: #eab308;
-            color: #eab308;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            font-size: 1.5rem;
         }
 
         /* Responsive */
-        @media (max-width: 640px) {
-            .text-6xl {
+        @media (max-width: 768px) {
+            .header h1 {
                 font-size: 2.5rem;
             }
-            .text-5xl {
-                font-size: 2rem;
+            .header .subtitle {
+                font-size: 1.3rem;
             }
-            .text-4xl {
-                font-size: 1.75rem;
+            .header .tagline {
+                font-size: 1rem;
             }
-            .text-3xl {
+            .days-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .day-title {
                 font-size: 1.5rem;
-            }
-            .btn-success,
-            .btn-danger,
-            .btn-special {
-                font-size: 1.25rem;
-                padding: 1rem 2rem;
-            }
-            .card-large {
-                padding: 1.5rem;
             }
         }
 
-        /* Z-index layers */
-        .z-40 { z-index: 40; }
-        .z-50 { z-index: 50; }
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+        }
 
-        /* Opacity */
-        .opacity-30 { opacity: 0.3; }
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
-    <div id="app"></div>
+    <!-- Floating Hearts -->
+    <div class="hearts-container" id="hearts"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-emoji">💕</div>
+            <h1>Happy Valentine's Week 2026!</h1>
+            <p class="subtitle">For My Dearest Anshika</p>
+            <p class="tagline">A week full of love, surprises, and beautiful moments 💝</p>
+        </header>
+
+        <!-- Days Grid -->
+        <div class="days-grid">
+            <!-- Rose Day -->
+            <a href="rose-day.html" class="day-card active" style="text-decoration: none;">
+                <div class="day-icon">🌹</div>
+                <div class="day-date">February 7, 2026</div>
+                <div class="day-title">Rose Day</div>
+                <div class="day-description">The day we began this beautiful journey with a rose that symbolizes our love</div>
+                <div class="day-status status-active">✨ Experience Now</div>
+            </a>
+
+            <!-- Propose Day -->
+            <a href="propose-day.html" class="day-card active" style="text-decoration: none;">
+                <div class="day-icon">💍</div>
+                <div class="day-date">February 8, 2026</div>
+                <div class="day-title">Propose Day</div>
+                <div class="day-description">The most important question, the moment my heart spoke to yours</div>
+                <div class="day-status status-active">✨ Experience Now</div>
+            </a>
+
+            <!-- Chocolate Day -->
+            <div class="day-card disabled tooltip" data-tooltip="Coming on February 9th!">
+                <div class="day-icon">🍫</div>
+                <div class="day-date">February 9, 2026</div>
+                <div class="day-title">Chocolate Day</div>
+                <div class="day-description">Sweet surprises await as we celebrate with delicious treats</div>
+                <div class="day-status status-coming-soon">🔒 Coming Soon!</div>
+            </div>
+
+            <!-- Teddy Day -->
+            <div class="day-card disabled tooltip" data-tooltip="Coming on February 10th!">
+                <div class="day-icon">🧸</div>
+                <div class="day-date">February 10, 2026</div>
+                <div class="day-title">Teddy Day</div>
+                <div class="day-description">A cuddly reminder of my warm hugs and endless love for you</div>
+                <div class="day-status status-coming-soon">🔒 Coming Soon!</div>
+            </div>
+
+            <!-- Promise Day -->
+            <div class="day-card disabled tooltip" data-tooltip="Coming on February 11th!">
+                <div class="day-icon">🤝</div>
+                <div class="day-date">February 11, 2026</div>
+                <div class="day-title">Promise Day</div>
+                <div class="day-description">The day I make eternal promises to always be by your side</div>
+                <div class="day-status status-coming-soon">🔒 Coming Soon!</div>
+            </div>
+
+            <!-- Hug Day -->
+            <div class="day-card disabled tooltip" data-tooltip="Coming on February 12th!">
+                <div class="day-icon">🤗</div>
+                <div class="day-date">February 12, 2026</div>
+                <div class="day-title">Hug Day</div>
+                <div class="day-description">Wrapping you in the warmth of my love and affection</div>
+                <div class="day-status status-coming-soon">🔒 Coming Soon!</div>
+            </div>
+
+            <!-- Kiss Day -->
+            <div class="day-card disabled tooltip" data-tooltip="Coming on February 13th!">
+                <div class="day-icon">💋</div>
+                <div class="day-date">February 13, 2026</div>
+                <div class="day-title">Kiss Day</div>
+                <div class="day-description">Sealing our love with the sweetest moments of affection</div>
+                <div class="day-status status-coming-soon">🔒 Coming Soon!</div>
+            </div>
+
+            <!-- Valentine's Day -->
+            <div class="day-card disabled tooltip" data-tooltip="Coming on February 14th!">
+                <div class="day-icon">💖</div>
+                <div class="day-date">February 14, 2026</div>
+                <div class="day-title">Valentine's Day</div>
+                <div class="day-description">The grand finale - celebrating our love in the most special way</div>
+                <div class="day-status status-coming-soon">🔒 Coming Soon!</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with <span class="footer-heart">❤️</span> by Akshit for Anshika</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #be123c;">Forever and Always 💕</p>
+        </footer>
+    </div>
 
     <script>
-        // ============================================
-        // TRACKING SYSTEM - Records every interaction
-        // ============================================
-        
-        // SETUP INSTRUCTIONS:
-        // 1. Go to: https://script.google.com
-        // 2. Click "New Project"
-        // 3. Paste this code in the editor:
-        
-        /*
-        function doPost(e) {
-          var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-          
-          // Create headers if sheet is empty
-          if (sheet.getLastRow() === 0) {
-            sheet.appendRow(['Timestamp', 'Action', 'Question ID', 'Answer', 'Is Correct', 'Attempt Number', 'Extra Data']);
-          }
-          
-          var data = JSON.parse(e.postData.contents);
-          
-          sheet.appendRow([
-            data.timestamp,
-            data.action,
-            data.question_id || '',
-            data.selected_answer || '',
-            data.is_correct || '',
-            data.attempt_number || '',
-            JSON.stringify(data)
-          ]);
-          
-          return ContentService.createTextOutput(JSON.stringify({success: true}))
-            .setMimeType(ContentService.MimeType.JSON);
-        }
-        */
-        
-        // 4. Save project (name it "Valentine Tracker")
-        // 5. Click "Deploy" → "New deployment"
-        // 6. Type: "Web app"
-        // 7. Who has access: "Anyone"
-        // 8. Click "Deploy"
-        // 9. Copy the URL and paste it below:
-        
-        const TRACKING_URL = 'https://script.google.com/macros/s/AKfycbwz2lhOrznwgcFX-Q15bgzJtVDelsgihB7oWCxOckUCxZGJhvMhKaG5q6pRBAs_v4B_/exec';
-        const ENABLE_TRACKING = true; // Set to true after you paste the URL above
-        
-        // Tracking data storage
-        let trackingData = {
-            quiz_attempts: {},
-            love_attempts: {},
-            valentine_responses: [],
-            session_start: new Date().toISOString()
-        };
+        // Create floating hearts
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            const hearts = ['💕', '💖', '💗', '💝', '❤️', '🌹'];
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            document.getElementById('hearts').appendChild(heart);
 
-        // Send tracking data to Google Sheets
-        async function sendTracking(action, data) {
-            if (!ENABLE_TRACKING || TRACKING_URL === 'YOUR_GOOGLE_APPS_SCRIPT_DEPLOYMENT_URL_HERE') {
-                console.log('📊 TRACKING (disabled):', action, data);
-                return;
-            }
-            
-            try {
-                await fetch(TRACKING_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        action: action,
-                        timestamp: new Date().toISOString(),
-                        ...data
-                    })
-                });
-                console.log('✅ Tracked:', action);
-            } catch (error) {
-                console.error('❌ Tracking error:', error);
-            }
+            setTimeout(() => {
+                heart.remove();
+            }, 12000);
         }
 
-        // Track quiz attempts
-        function trackQuizAttempt(questionId, selectedAnswer, isCorrect) {
-            if (!trackingData.quiz_attempts[questionId]) {
-                trackingData.quiz_attempts[questionId] = [];
-            }
-            
-            const attempt = {
-                answer: selectedAnswer,
-                correct: isCorrect,
-                timestamp: new Date().toISOString(),
-                attempt_number: trackingData.quiz_attempts[questionId].length + 1
-            };
-            
-            trackingData.quiz_attempts[questionId].push(attempt);
-            
-            sendTracking('quiz_answer', {
-                question_id: questionId,
-                selected_answer: selectedAnswer,
-                is_correct: isCorrect,
-                attempt_number: attempt.attempt_number,
-                total_attempts: trackingData.quiz_attempts[questionId].length
+        // Create hearts periodically
+        setInterval(createFloatingHeart, 400);
+
+        // Initial burst of hearts
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createFloatingHeart, i * 200);
+        }
+
+        // Prevent disabled cards from being clicked
+        document.querySelectorAll('.day-card.disabled').forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
             });
-        }
-
-        // Track love question attempts
-        function trackLoveAttempt(questionId, selectedAnswer) {
-            if (!trackingData.love_attempts[questionId]) {
-                trackingData.love_attempts[questionId] = [];
-            }
-            
-            const attempt = {
-                answer: selectedAnswer,
-                timestamp: new Date().toISOString(),
-                attempt_number: trackingData.love_attempts[questionId].length + 1
-            };
-            
-            trackingData.love_attempts[questionId].push(attempt);
-            
-            sendTracking('love_answer', {
-                question_id: questionId,
-                selected_answer: selectedAnswer,
-                attempt_number: attempt.attempt_number,
-                total_attempts: trackingData.love_attempts[questionId].length
-            });
-        }
-
-        // Track valentine answer (Yes/No/Reconsider)
-        function trackValentineAnswer(answer) {
-            const response = {
-                answer: answer,
-                timestamp: new Date().toISOString(),
-                response_number: trackingData.valentine_responses.length + 1
-            };
-            
-            trackingData.valentine_responses.push(response);
-            
-            const noCount = trackingData.valentine_responses.filter(r => r.answer === 'no').length;
-            
-            sendTracking('valentine_answer', {
-                answer: answer,
-                response_number: response.response_number,
-                said_no_count: noCount,
-                reconsidered: answer === null && trackingData.valentine_responses.length > 1
-            });
-        }
-
-        // Track stage completion
-        function trackStageComplete(stageNumber) {
-            sendTracking('stage_complete', {
-                stage: stageNumber
-            });
-        }
-
-        // Send final summary
-        function sendFinalSummary() {
-            const summary = {
-                total_quiz_attempts: Object.values(trackingData.quiz_attempts).reduce((sum, arr) => sum + arr.length, 0),
-                total_love_attempts: Object.values(trackingData.love_attempts).reduce((sum, arr) => sum + arr.length, 0),
-                said_no_count: trackingData.valentine_responses.filter(r => r.answer === 'no').length,
-                final_answer: trackingData.valentine_responses[trackingData.valentine_responses.length - 1]?.answer,
-                session_duration: ((new Date() - new Date(trackingData.session_start)) / 1000 / 60).toFixed(2) + ' minutes'
-            };
-            
-            sendTracking('journey_complete', summary);
-        }
-
-        // SVG Icons as strings
-        const HEART_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>`;
-        
-        const SPARKLES_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>`;
-        
-        const CHEVRON_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
-
-        // State
-        let state = {
-            stage: 0,
-            quizAnswers: {},
-            loveAnswers: {},
-            showPetals: true,
-            finalAnswer: null,
-            showConfetti: false,
-            showHeartbreak: false,
-            loveProgress: 0
-        };
-
-        const quizQuestions = [
-            {
-                id: 1,
-                question: "Where did our story begin? 🎓",
-                options: [
-                    "At the college campus",
-                    "At a coffee shop",
-                    "Through mutual friends",
-                    "At a college event"
-                ],
-                correct: 0
-            },
-            {
-                id: 2,
-                question: "What was the first thing we talked about? 📚",
-                options: [
-                    "About weekend plans",
-                    "You needed the class strength as CR",
-                    "About a college assignment",
-                    "About our favorite movies"
-                ],
-                correct: 1
-            },
-            {
-                id: 3,
-                question: "When did you take the first step and ask me out? 🌙",
-                options: [
-                    "During the annual fest",
-                    "After a college lecture",
-                    "At the Moonstone event",
-                    "On a random weekend"
-                ],
-                correct: 2
-            }
-        ];
-
-        const loveQuestions = [
-            {
-                id: 1,
-                question: "When you think about our future together, what do you feel? 💭",
-                options: [
-                    "Excited and full of dreams",
-                    "Happy and peaceful",
-                    "Nervous but hopeful",
-                    "All of the above"
-                ]
-            },
-            {
-                id: 2,
-                question: "If you could describe what I mean to you in one word, what would it be? 💝",
-                options: [
-                    "Everything",
-                    "Home",
-                    "Forever",
-                    "My person"
-                ]
-            }
-        ];
-
-        function checkQuizComplete() {
-            return Object.keys(state.quizAnswers).length === quizQuestions.length &&
-                   quizQuestions.every(q => state.quizAnswers[q.id] === q.correct);
-        }
-
-        function checkLoveComplete() {
-            return Object.keys(state.loveAnswers).length === loveQuestions.length;
-        }
-
-        function updateLoveProgress() {
-            let progress = 0;
-            if (state.stage >= 1) progress += 20;
-            if (checkQuizComplete()) progress += 20;
-            if (state.stage >= 2) progress += 20;
-            if (checkLoveComplete()) progress += 20;
-            if (state.stage >= 4) progress += 20;
-            state.loveProgress = progress;
-        }
-
-        function createPetals() {
-            if (!state.showPetals) return '';
-            let html = '<div class="fixed inset-0 pointer-events-none z-50 overflow-hidden">';
-            for (let i = 0; i < 30; i++) {
-                const left = Math.random() * 100;
-                const delay = Math.random() * 3;
-                const duration = 4 + Math.random() * 4;
-                html += `<div class="absolute animate-fall" style="left: ${left}%; animation-delay: ${delay}s; animation-duration: ${duration}s; font-size: 1.875rem;">🌹</div>`;
-            }
-            html += '</div>';
-            return html;
-        }
-
-        function createConfetti() {
-            if (!state.showConfetti) return '';
-            const emojis = ['💕', '💖', '💗', '💝', '❤️', '🌹', '✨'];
-            let html = '<div class="fixed inset-0 pointer-events-none z-50 overflow-hidden">';
-            for (let i = 0; i < 50; i++) {
-                const left = Math.random() * 100;
-                const delay = Math.random() * 0.5;
-                const duration = 2 + Math.random() * 2;
-                const emoji = emojis[Math.floor(Math.random() * emojis.length)];
-                html += `<div class="absolute animate-confetti" style="left: ${left}%; animation-delay: ${delay}s; animation-duration: ${duration}s; font-size: 1.5rem;">${emoji}</div>`;
-            }
-            html += '</div>';
-            return html;
-        }
-
-        function createFloatingHearts() {
-            let html = '<div class="fixed inset-0 pointer-events-none z-40 overflow-hidden">';
-            for (let i = 0; i < 15; i++) {
-                const left = Math.random() * 100;
-                const delay = Math.random() * 5;
-                const duration = 8 + Math.random() * 4;
-                html += `<div class="absolute animate-float-up opacity-30" style="left: ${left}%; animation-delay: ${delay}s; animation-duration: ${duration}s; font-size: 2.25rem;">💕</div>`;
-            }
-            html += '</div>';
-            return html;
-        }
-
-        function createHeartbreakAnimation() {
-            if (!state.showHeartbreak) return '';
-            return `
-                <div class="fixed inset-0 z-50 flex items-center justify-center" style="background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px);">
-                    <div class="text-center">
-                        <div class="relative inline-block mb-8">
-                            <div class="heartbreak" style="font-size: 10rem;">💔</div>
-                            <div class="absolute shatter-left" style="font-size: 5rem; top: 0; left: -20px;">💔</div>
-                            <div class="absolute shatter-right" style="font-size: 5rem; top: 0; right: -20px;">💔</div>
-                        </div>
-                        <div class="relative">
-                            <div class="tear-fall absolute" style="font-size: 3rem; left: 50%; top: -50px; animation-delay: 0.3s;">💧</div>
-                            <div class="tear-fall absolute" style="font-size: 3rem; left: 40%; top: -50px; animation-delay: 0.5s;">💧</div>
-                            <div class="tear-fall absolute" style="font-size: 3rem; left: 60%; top: -50px; animation-delay: 0.7s;">💧</div>
-                        </div>
-                        <h2 class="text-5xl font-bold text-white mb-4 sad-shake" style="animation-delay: 0.5s;">
-                            My heart is breaking... 💔
-                        </h2>
-                        <p class="text-2xl text-white opacity-80">
-                            😢
-                        </p>
-                    </div>
-                </div>
-            `;
-        }
-
-        function createProgressBar() {
-            if (state.stage === 0) return '';
-            return `
-                <div class="progress-container">
-                    <div class="progress-card">
-                        <div class="progress-header">
-                            <span style="font-size: 1rem;">❤️</span>
-                            <span class="text-sm font-semibold text-gray-700">Love Meter</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: ${state.loveProgress}%"></div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function getCountdownTime() {
-            const valentine = new Date('2026-02-14T00:00:00');
-            const now = new Date();
-            const diff = valentine - now;
-            
-            if (diff > 0) {
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                return `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            }
-            return "It's Valentine's Day! 💕";
-        }
-
-        function renderStage0() {
-            return `
-                <div class="text-center space-y-8 py-20 fade-in">
-                    <div class="relative inline-block">
-                        <div class="heartbeat" style="font-size: 6rem;">❤️</div>
-                        <span class="absolute sparkle" style="top: -0.5rem; right: -0.5rem; font-size: 2rem;">✨</span>
-                    </div>
-                    
-                    <h1 class="text-6xl font-bold mb-4" style="background: linear-gradient(to right, #db2777, #e11d48); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                        For Someone Special 💕
-                    </h1>
-                    
-                    <div class="inline-block" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
-                        <p class="text-2xl text-gray-700 mb-2 font-semibold">Anshika</p>
-                        <p class="text-lg text-gray-600">This Valentine's week is all about you...</p>
-                    </div>
-
-                    <div class="bg-countdown">
-                        <div class="flex items-center justify-center gap-2 mb-1">
-                            <span class="text-sm font-semibold">Valentine's Day Countdown</span>
-                        </div>
-                        <div class="text-2xl font-bold" id="countdown-time">${getCountdownTime()}</div>
-                    </div>
-                    
-                    <button onclick="nextStage()" class="btn btn-primary pulse-glow">
-                        Begin Our Journey 🌹
-                    </button>
-                </div>
-            `;
-        }
-
-        function renderStage1() {
-            let html = `
-                <div class="card fade-in">
-                    <div class="text-center mb-8">
-                        <div class="mb-4" style="font-size: 3rem;">✨</div>
-                        <h2 class="text-4xl font-bold text-rose-600 mb-2">How Well Do You Remember Us? 💭</h2>
-                        <p class="text-gray-600 text-lg">Let's take a trip down memory lane...</p>
-                    </div>
-                    <div class="space-y-6">
-            `;
-
-            quizQuestions.forEach((q, idx) => {
-                html += `
-                    <div class="question-card slide-in" style="animation-delay: ${idx * 0.1}s">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">${idx + 1}. ${q.question}</h3>
-                        <div class="space-y-4">
-                `;
-                
-                q.options.forEach((option, optIdx) => {
-                    const isSelected = state.quizAnswers[q.id] === optIdx;
-                    html += `
-                        <label class="option-label ${isSelected ? 'selected' : ''}">
-                            <input type="radio" name="quiz-${q.id}" ${isSelected ? 'checked' : ''} onchange="selectQuizAnswer(${q.id}, ${optIdx})">
-                            <span class="font-semibold">${option}</span>
-                        </label>
-                    `;
-                });
-                
-                if (state.quizAnswers[q.id] === q.correct) {
-                    html += '<div class="mt-3 text-green-600 font-semibold">✨ Perfect! You remember!</div>';
-                }
-                
-                html += '</div></div>';
-            });
-
-            html += '</div>';
-
-            if (checkQuizComplete()) {
-                html += `
-                    <div class="mt-8 text-center fade-in bg-gradient-success p-6 rounded-2xl">
-                        <p class="text-green-600 font-bold mb-4 text-2xl">✨ Perfect Score! You remember everything! ✨</p>
-                        <p class="text-gray-600 mb-4">Every moment with you is unforgettable 💕</p>
-                        <button onclick="nextStage()" class="btn btn-primary">
-                            Continue Our Story →
-                        </button>
-                    </div>
-                `;
-            }
-
-            html += '</div>';
-            return html;
-        }
-
-        function renderStage2() {
-            let html = `
-                <div class="card fade-in">
-                    <div class="text-center mb-8">
-                        <div class="heartbeat mb-4" style="font-size: 3.75rem;">❤️</div>
-                        <h2 class="text-4xl font-bold text-rose-600 mb-2">Let's Talk About Us 💕</h2>
-                        <p class="text-gray-600 text-lg">Your heart knows the answers...</p>
-                    </div>
-                    <div class="space-y-6">
-            `;
-
-            loveQuestions.forEach((q, idx) => {
-                html += `
-                    <div class="slide-in" style="animation-delay: ${idx * 0.1}s; border: 2px solid #fecaca; border-radius: 1rem; padding: 1.5rem; background: linear-gradient(135deg, #fee2e2 0%, #fce7f3 100%);">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">${q.question}</h3>
-                        <div class="space-y-4">
-                `;
-                
-                q.options.forEach((option, optIdx) => {
-                    const isSelected = state.loveAnswers[q.id] === optIdx;
-                    html += `
-                        <label class="option-label ${isSelected ? 'selected' : ''}">
-                            <input type="radio" name="love-${q.id}" ${isSelected ? 'checked' : ''} onchange="selectLoveAnswer(${q.id}, ${optIdx})">
-                            <span class="font-semibold">${option}</span>
-                        </label>
-                    `;
-                });
-                
-                html += '</div></div>';
-            });
-
-            html += '</div>';
-
-            if (checkLoveComplete()) {
-                html += `
-                    <div class="mt-8 text-center fade-in bg-gradient-love p-6 rounded-2xl">
-                        <div class="heartbeat mb-3" style="font-size: 3rem;">❤️</div>
-                        <p class="text-rose-600 font-bold mb-4 text-2xl">💝 Your answers mean the world to me 💝</p>
-                        <p class="text-gray-600 mb-4">Now for the most important question...</p>
-                        <button onclick="nextStage()" class="btn btn-primary">
-                            The Big Question →
-                        </button>
-                    </div>
-                `;
-            }
-
-            html += '</div>';
-            return html;
-        }
-
-        function renderStage3() {
-            if (state.finalAnswer === 'no') {
-                return `
-                    <div class="card card-large text-center fade-in">
-                        <div class="mb-6" style="font-size: 4rem;">🥺</div>
-                        <p class="text-3xl text-gray-600 mb-6 font-semibold">Are you sure?</p>
-                        <p class="text-xl text-gray-600 mb-8">
-                            Maybe you clicked the wrong button?<br>
-                            My heart is hoping so... 💔
-                        </p>
-                        <button onclick="answerValentine(null)" class="btn btn-primary">
-                            Let me reconsider 💭💕
-                        </button>
-                    </div>
-                `;
-            }
-            
-            // Default: show the main question
-            return `
-                <div class="card card-large text-center fade-in">
-                    <div class="heartbeat mb-8 inline-block" style="font-size: 8rem;">❤️</div>
-                    <h2 class="text-5xl font-bold text-rose-600 mb-6">Anshika...</h2>
-                    <div class="bg-gradient-love p-8 rounded-2xl mb-8">
-                        <p class="text-3xl text-gray-700 mb-6 leading-relaxed font-semibold">
-                            This Valentine's Day,<br>
-                            and every day after,<br>
-                            I want to spend with you. 💕
-                        </p>
-                    </div>
-                    <h3 class="text-4xl font-bold mb-10" style="background: linear-gradient(to right, #e11d48, #dc2626); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                        Will You Be My Valentine? 🌹
-                    </h3>
-                    <div class="flex gap-6 justify-center flex-wrap">
-                        <button onclick="answerValentine('yes')" class="btn btn-success">
-                            Yes! 💚✨
-                        </button>
-                        <button onclick="answerValentine('no')" class="btn btn-danger">
-                            No 💔
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderStage4() {
-            return `
-                <div class="bg-gradient-poem rounded-2xl p-8 card-large fade-in">
-                    <div class="text-center mb-8">
-                        <div class="mb-4" style="font-size: 5rem;">✨</div>
-                        <h2 class="text-4xl font-bold text-rose-600 mb-4">From My Heart to Yours 💝</h2>
-                        <p class="text-gray-600 text-lg">Words I wrote just for you...</p>
-                    </div>
-                    
-                    <div style="background: white; border-radius: 1rem; padding: 2.5rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); margin-bottom: 2rem; border: 2px solid #fbcfe8;">
-                        <div class="poem-text space-y-6">
-                            <p class="text-3xl text-gray-800 leading-relaxed slide-in">
-                                ज़िंदगी की किताब का तुम सबसे हसीन किस्सा हो,
-                            </p>
-                            <p class="text-3xl text-gray-800 leading-relaxed slide-in" style="animation-delay: 0.2s">
-                                मेरे वजूद का तुम ही तो सबसे ज़रूरी हिस्सा हो।
-                            </p>
-                            <div class="py-4">
-                                <span class="heartbeat" style="font-size: 2rem;">❤️</span>
-                            </div>
-                            <p class="text-3xl text-gray-800 leading-relaxed slide-in" style="animation-delay: 0.4s">
-                                अक्षित की हर साँस, हर धड़कन पर हक़ है तुम्हारा,
-                            </p>
-                            <p class="text-3xl text-gray-800 leading-relaxed slide-in" style="animation-delay: 0.6s">
-                                क्योंकि मेरे दिल का धड़कता हुआ 'अंश', मेरी अंशिका तुम हो।
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="text-center p-6 rounded-2xl mb-6" style="background: linear-gradient(to right, #fce7f3, #fbcfe8);">
-                        <p class="text-rose-600 font-bold text-2xl mb-2">❤️ हमेशा के लिए तुम्हारा अक्षित ❤️</p>
-                        <p class="text-gray-600 italic">Forever and always</p>
-                    </div>
-
-                    <div class="text-center">
-                        <button onclick="nextStage()" class="btn btn-special pulse-glow">
-                            One More Surprise 🎁✨
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderStage5() {
-            return `
-                <div class="card card-large text-center fade-in">
-                    <div class="heartbeat mb-8 inline-block" style="font-size: 6rem;">✨</div>
-                    
-                    <h2 class="text-4xl font-bold text-rose-600 mb-6">I Made Something Special For You! 🎥</h2>
-                    
-                    <div class="p-8 rounded-2xl mb-8" style="background: linear-gradient(to right, #faf5ff, #fce7f3);">
-                        <p class="text-2xl text-gray-700 mb-6 leading-relaxed font-semibold">
-                            I created this just for you, Anshika.
-                        </p>
-                        <p class="text-xl text-gray-600 mb-6 leading-relaxed">
-                            Every moment, every memory, every feeling...<br>
-                            All captured in this little video. 💕
-                        </p>
-                        <p class="text-lg text-gray-600 italic">
-                            Our story, our journey, our love... ✨
-                        </p>
-                    </div>
-
-                    <div class="mb-8">
-                        <p class="text-xl text-gray-600 mb-4 font-semibold">
-                            Click below to watch our Valentine's story unfold...
-                        </p>
-                    </div>
-                    
-                    <a href="https://photos.app.goo.gl/SQEWRin3v8tYwUpN6" target="_blank" rel="noopener noreferrer" class="btn btn-special pulse-glow">
-                        Watch Our Valentine Video 🎬 💝
-                    </a>
-                    
-                    <div class="mt-10 p-6 rounded-2xl" style="background: #fce7f3;">
-                        <p class="text-gray-600 text-lg mb-2">Made with all my love 💕</p>
-                        <p class="text-rose-600 font-bold text-xl">Happy Valentine's Week, Anshika! 🌹</p>
-                    </div>
-                </div>
-            `;
-        }
-
-        function render() {
-            updateLoveProgress();
-            let content = '';
-            
-            if (state.stage === 0) content = renderStage0();
-            else if (state.stage === 1) content = renderStage1();
-            else if (state.stage === 2) content = renderStage2();
-            else if (state.stage === 3) content = renderStage3();
-            else if (state.stage === 4) content = renderStage4();
-            else if (state.stage === 5) content = renderStage5();
-
-            // Don't render if content is undefined or empty
-            if (!content) return;
-
-            document.getElementById('app').innerHTML = `
-                ${createPetals()}
-                ${createConfetti()}
-                ${createFloatingHearts()}
-                ${createProgressBar()}
-                ${createHeartbreakAnimation()}
-                <div class="container">
-                    ${content}
-                </div>
-            `;
-        }
-
-        function nextStage() {
-            // Track stage completion
-            trackStageComplete(state.stage);
-            
-            state.stage++;
-            if (state.stage === 4) {
-                state.showConfetti = false;
-            }
-            // Stop countdown when leaving stage 0
-            if (countdownInterval) {
-                clearInterval(countdownInterval);
-                countdownInterval = null;
-            }
-            render();
-        }
-
-        function selectQuizAnswer(questionId, answerIdx) {
-            state.quizAnswers[questionId] = answerIdx;
-            
-            // Track this attempt
-            const question = quizQuestions.find(q => q.id === questionId);
-            const isCorrect = answerIdx === question.correct;
-            trackQuizAttempt(questionId, answerIdx, isCorrect);
-            
-            render();
-        }
-
-        function selectLoveAnswer(questionId, answerIdx) {
-            state.loveAnswers[questionId] = answerIdx;
-            
-            // Track this attempt
-            trackLoveAttempt(questionId, answerIdx);
-            
-            render();
-        }
-
-        function answerValentine(answer) {
-            // Track the answer
-            trackValentineAnswer(answer);
-            
-            if (answer === 'no') {
-                // Show heartbreak animation first
-                state.showHeartbreak = true;
-                state.finalAnswer = null;
-                render();
-                
-                // After 2 seconds, hide animation and show reconsider option
-                setTimeout(() => {
-                    state.showHeartbreak = false;
-                    state.finalAnswer = 'no';
-                    render();
-                }, 2000);
-            } else if (answer === 'yes') {
-                state.finalAnswer = answer;
-                state.showConfetti = true;
-                
-                // Send final summary
-                setTimeout(() => {
-                    sendFinalSummary();
-                }, 500);
-                
-                setTimeout(() => {
-                    state.stage = 4;
-                    render();
-                }, 1000);
-                render();
-            } else {
-                // Reconsider - reset to null
-                state.finalAnswer = answer;
-                render();
-            }
-        }
-
-        // Hide petals after 5 seconds
-        setTimeout(() => {
-            state.showPetals = false;
-            render();
-        }, 5000);
-
-        // Update countdown only on stage 0
-        let countdownInterval = null;
-        function startCountdown() {
-            if (countdownInterval) clearInterval(countdownInterval);
-            countdownInterval = setInterval(() => {
-                const countdownEl = document.getElementById('countdown-time');
-                if (countdownEl) {
-                    countdownEl.textContent = getCountdownTime();
-                } else {
-                    clearInterval(countdownInterval);
-                }
-            }, 1000);
-        }
-
-        // Initial render
-        render();
-        
-        // Start countdown if on stage 0
-        if (state.stage === 0) {
-            startCountdown();
-        }
+        });
     </script>
 </body>
 </html>
