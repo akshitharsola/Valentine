@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Love 🍫 | Chocolate Day 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Noto Sans Devanagari', serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #3d2817 0%, #6f4e37 25%, #8b4c39 50%, #d4a5a5 75%, #ffb7c5 100%);
+            background-size: 400% 400%;
+            animation: chocolateGradient 15s ease infinite;
+            color: #2d1810;
+        }
+
+        @keyframes chocolateGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Floating Chocolates */
+        .chocolates-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-chocolate {
+            position: absolute;
+            font-size: 2rem;
+            animation: float-chocolate 12s infinite;
+            opacity: 0;
+        }
+
+        @keyframes float-chocolate {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Common Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, rgba(109,78,55,0.95) 0%, rgba(212,165,165,0.95) 100%);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            color: #fff;
+            text-shadow: 3px 3px 8px rgba(61,40,23,0.5);
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero .date {
+            font-size: 1.3rem;
+            color: #ffb7c5;
+            font-weight: 600;
+            margin-bottom: 15px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero .tagline {
+            font-size: 1.6rem;
+            color: #ffd6e0;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease-out;
+            font-style: italic;
+            max-width: 700px;
+        }
+
+        .chocolate-emoji {
+            font-size: 5rem;
+            display: inline-block;
+            animation: heartbeat 2s ease-in-out infinite;
+            margin: 20px;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #ffd6e0, #fff5f7);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-section h2 {
+            font-size: 2.8rem;
+            color: #6f4e37;
+            margin-bottom: 20px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .video-section .subtitle {
+            font-size: 1.3rem;
+            color: #8b4c39;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(61,40,23,0.4);
+            animation: fadeIn 1.5s ease-out;
+            background: #000;
+            aspect-ratio: 16/9;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #6f4e37 0%, #8b4c39 100%);
+            color: white;
+            padding: 40px;
+        }
+
+        .video-placeholder h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .video-placeholder p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Poem Section */
+        .poem-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe6f0 100%);
+            position: relative;
+            z-index: 2;
+        }
+
+        .poem-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ffd6e0 0%, #ffffff 100%);
+            padding: 60px 40px;
+            border-radius: 25px;
+            box-shadow: 0 25px 70px rgba(111,78,55,0.3);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #6f4e37;
+        }
+
+        .poem-container::before {
+            content: '🍫';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 150px;
+            opacity: 0.1;
+            transform: rotate(25deg);
+        }
+
+        .poem-container h2 {
+            font-size: 2.8rem;
+            color: #6f4e37;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .poem-text {
+            font-size: 1.9rem;
+            line-height: 2.3;
+            color: #3d2817;
+            text-align: center;
+            font-family: 'Noto Sans Devanagari', serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .poem-line {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .poem-line:nth-child(1) { animation-delay: 0.3s; }
+        .poem-line:nth-child(2) { animation-delay: 0.8s; }
+        .poem-line:nth-child(3) { animation-delay: 1.3s; }
+        .poem-line:nth-child(4) { animation-delay: 1.8s; }
+
+        .poem-divider {
+            text-align: center;
+            font-size: 2rem;
+            margin: 25px 0;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Interactive Chocolate Box */
+        .chocolate-box-section {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #ffe6f0, #ffd6e0);
+            position: relative;
+            z-index: 2;
+        }
+
+        .chocolate-box-section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #6f4e37;
+            margin-bottom: 20px;
+        }
+
+        .chocolate-box-section .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #8b4c39;
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+
+        .chocolate-box {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 40px;
+            background: linear-gradient(135deg, #8b4c39 0%, #6f4e37 100%);
+            border-radius: 25px;
+            box-shadow: 0 30px 80px rgba(61,40,23,0.5);
+            perspective: 1000px;
+        }
+
+        .chocolate {
+            aspect-ratio: 1;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.6s;
+            font-size: 3rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .chocolate:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .chocolate.revealed {
+            transform: rotateY(180deg);
+        }
+
+        .chocolate-front,
+        .chocolate-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backface-visibility: hidden;
+            padding: 15px;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .chocolate-front {
+            background: linear-gradient(135deg, #4a2c1f 0%, #6f4e37 100%);
+        }
+
+        .chocolate-back {
+            background: linear-gradient(135deg, #ffb7c5 0%, #ffd6e0 100%);
+            transform: rotateY(180deg);
+            font-size: 1rem;
+            color: #6f4e37;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* Message Section */
+        .message-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #6f4e37 0%, #8b4c39 100%);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .message-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .message-box h2 {
+            font-size: 2.5rem;
+            color: #6f4e37;
+            margin-bottom: 30px;
+        }
+
+        .message-box p {
+            font-size: 1.3rem;
+            color: #3d2817;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            font-size: 1.5rem;
+            color: #e11d48;
+            font-weight: bold;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            color: #6f4e37;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            background: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+            .poem-text {
+                font-size: 1.5rem;
+            }
+            .chocolate-box {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 25px;
+                gap: 15px;
+            }
+            .video-section h2,
+            .poem-container h2,
+            .chocolate-box-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Chocolates -->
+    <div class="chocolates-container" id="chocolates"></div>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">← Back to Valentine's Week</a>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="chocolate-emoji">🍫</div>
+        <p class="date">February 9, 2026</p>
+        <h1>🍫 Chocolate Day 💕</h1>
+        <p class="tagline">Life is like a box of chocolates, and you're my favorite one!</p>
+        <div class="chocolate-emoji">💝</div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <h2>✨ Our Sweet Story ✨</h2>
+        <p class="subtitle">A special AI-generated video just for you...</p>
+        <div class="video-container">
+            <!-- AI Generated Video -->
+            <iframe src="https://drive.google.com/file/d/1Nw8M1qgEKLcimdA3bb4U9Qyu5wwGhMLU/preview"
+                    allowfullscreen
+                    allow="autoplay">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Poem Section -->
+    <section class="poem-section">
+        <div class="poem-container">
+            <h2>💌 मीठी बातें 💌</h2>
+            <div class="poem-text">
+                <p class="poem-line">चॉकलेट की मिठास से भी मीठा है तुम्हारा साथ,</p>
+                <p class="poem-line">तुम्हारी मुस्कान में वो जादू है जो दिल को कर दे निहाल।</p>
+                <div class="poem-divider">🍫</div>
+                <p class="poem-line">हर पल में तुम्हें खुश देखना है मेरी ख्वाहिश,</p>
+                <p class="poem-line">तुम हो मेरी ज़िंदगी की सबसे प्यारी मिठास, अंशिका।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Chocolate Box -->
+    <section class="chocolate-box-section">
+        <h2>💝 Sweet Messages for You 💝</h2>
+        <p class="subtitle">Click each chocolate to unwrap a love message!</p>
+        <div class="chocolate-box">
+            <div class="chocolate" onclick="revealChocolate(this)">
+                <div class="chocolate-front">🍫</div>
+                <div class="chocolate-back">Wanna listen your voice so that I can have better day! ✨</div>
+            </div>
+            <div class="chocolate" onclick="revealChocolate(this)">
+                <div class="chocolate-front">🍫</div>
+                <div class="chocolate-back">Your bright face releases my dopamine, you are a blast same as in Lava Chocolate. 🍫💥</div>
+            </div>
+            <div class="chocolate" onclick="revealChocolate(this)">
+                <div class="chocolate-front">🍫</div>
+                <div class="chocolate-back">Any special gift from your side? 🎁</div>
+            </div>
+            <div class="chocolate" onclick="revealChocolate(this)">
+                <div class="chocolate-front">🍫</div>
+                <div class="chocolate-back">You're sweeter than the finest Belgian chocolate, and twice as addictive! 💖</div>
+            </div>
+            <div class="chocolate" onclick="revealChocolate(this)">
+                <div class="chocolate-front">🍫</div>
+                <div class="chocolate-back">Just like chocolate melts in warmth, I melt when you smile at me. 🫠</div>
+            </div>
+            <div class="chocolate" onclick="revealChocolate(this)">
+                <div class="chocolate-front">🍫</div>
+                <div class="chocolate-back">Every moment with you tastes like my favorite chocolate - pure bliss! 😊</div>
+            </div>
+            <div class="chocolate" onclick="revealChocolate(this)">
+                <div class="chocolate-front">🍫</div>
+                <div class="chocolate-back">Your laugh is the sweetest sound, better than unwrapping a chocolate box! 🎵</div>
+            </div>
+            <div class="chocolate" onclick="revealChocolate(this)">
+                <div class="chocolate-front">🍫</div>
+                <div class="chocolate-back">You complete me like the perfect chocolate filling - absolutely irreplaceable! 💝</div>
+            </div>
+            <div class="chocolate" onclick="revealChocolate(this)">
+                <div class="chocolate-front">🍫</div>
+                <div class="chocolate-back">Forever craving you more than any chocolate in the world! ❤️</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section class="message-section">
+        <div class="message-box">
+            <h2>🍫 For My Sweetest Love 🍫</h2>
+            <p>
+                Anshika, just like chocolate brings joy to everyone, you bring endless happiness to my life.
+                Your love is the sweetest gift I could ever ask for.
+            </p>
+            <p>
+                Every moment with you is like unwrapping a precious chocolate - filled with surprise,
+                sweetness, and pure delight. You make my life so much richer and more beautiful.
+            </p>
+            <p>
+                Thank you for being the sweetest part of my life! 💕
+            </p>
+            <p class="signature">
+                Forever yours,<br>
+                Akshit 💝
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // Create floating chocolates
+        function createFloatingChocolate() {
+            const chocolate = document.createElement('div');
+            chocolate.classList.add('floating-chocolate');
+            const chocolates = ['🍫', '🍬', '🍭', '🍩', '🧁', '🍰', '💝'];
+            chocolate.innerHTML = chocolates[Math.floor(Math.random() * chocolates.length)];
+            chocolate.style.left = Math.random() * 100 + '%';
+            chocolate.style.animationDuration = (Math.random() * 4 + 10) + 's';
+            chocolate.style.animationDelay = Math.random() * 3 + 's';
+            document.getElementById('chocolates').appendChild(chocolate);
+
+            setTimeout(() => {
+                chocolate.remove();
+            }, 13000);
+        }
+
+        // Create chocolates periodically
+        setInterval(createFloatingChocolate, 500);
+
+        // Initial burst
+        for (let i = 0; i < 12; i++) {
+            setTimeout(createFloatingChocolate, i * 250);
+        }
+
+        // Reveal chocolate message
+        function revealChocolate(element) {
+            element.classList.toggle('revealed');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
