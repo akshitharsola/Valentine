@@ -175,6 +175,83 @@
             border: none;
         }
 
+        /* Poem Section */
+        .poem-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe6f0 100%);
+            position: relative;
+            z-index: 2;
+        }
+
+        .poem-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ffecd2 0%, #ffffff 100%);
+            padding: 60px 40px;
+            border-radius: 25px;
+            box-shadow: 0 25px 70px rgba(102,126,234,0.3);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #667eea;
+        }
+
+        .poem-container::before {
+            content: '🤝';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 150px;
+            opacity: 0.1;
+            transform: rotate(25deg);
+        }
+
+        .poem-container h2 {
+            font-size: 2.8rem;
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .poem-text {
+            font-size: 1.9rem;
+            line-height: 2.3;
+            color: #2d1b4e;
+            text-align: center;
+            font-family: 'Noto Sans Devanagari', 'Georgia', serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .poem-line {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .poem-line:nth-child(1) { animation-delay: 0.3s; }
+        .poem-line:nth-child(2) { animation-delay: 0.8s; }
+        .poem-line:nth-child(4) { animation-delay: 1.3s; }
+        .poem-line:nth-child(5) { animation-delay: 1.8s; }
+        .poem-line:nth-child(6) { animation-delay: 2.3s; }
+
+        .poem-divider {
+            text-align: center;
+            font-size: 2rem;
+            margin: 25px 0;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        .signature {
+            text-align: center;
+            font-size: 1.6rem;
+            color: #e11d48;
+            font-weight: bold;
+            margin-top: 40px;
+            font-style: italic;
+        }
+
         /* Promise Cards Section */
         .promise-cards-section {
             padding: 80px 20px;
@@ -374,6 +451,16 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
+            .poem-text {
+                font-size: 1.5rem;
+                line-height: 2;
+            }
+            .poem-container {
+                padding: 40px 25px;
+            }
+            .poem-container h2 {
+                font-size: 2rem;
+            }
             .promise-cards-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
@@ -408,6 +495,22 @@
                     allowfullscreen
                     allow="autoplay">
             </iframe>
+        </div>
+    </section>
+
+    <!-- Poem Section -->
+    <section class="poem-section">
+        <div class="poem-container">
+            <h2>💝 मेरा वादा 💝</h2>
+            <div class="poem-text">
+                <p class="poem-line">ना जन्मों का दावा, ना कल की कोई बात,</p>
+                <p class="poem-line">बस इतना है अंशिका, कि आज नहीं छोड़ूँगा तेरा हाथ।</p>
+                <div class="poem-divider">🤝</div>
+                <p class="poem-line">जब सच कड़वा लगे, या वक्त मुश्किल हो जाए,</p>
+                <p class="poem-line">वादा है, ये अक्षित भीड़ में बस तुम्हें ही चुनेगा,</p>
+                <p class="poem-line">चाहे जो हो जाए।</p>
+            </div>
+            <p class="signature">- अक्षित 💕</p>
         </div>
     </section>
 
