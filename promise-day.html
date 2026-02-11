@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Day 💝 | What Can You Promise Akshit?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Segoe UI', serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #ffecd2 75%, #ffe6e6 100%);
+            background-size: 400% 400%;
+            animation: promiseGradient 20s ease infinite;
+            color: #2d1b4e;
+        }
+
+        @keyframes promiseGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Floating Elements */
+        .promises-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-promise {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.3;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, rgba(102,126,234,0.95) 0%, rgba(244,147,251,0.95) 100%);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            color: #fff;
+            text-shadow: 3px 3px 8px rgba(45,27,78,0.6);
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero .date {
+            font-size: 1.4rem;
+            color: #ffe6e6;
+            font-weight: 600;
+            margin-bottom: 15px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero .tagline {
+            font-size: 1.7rem;
+            color: #ffd6e0;
+            margin-bottom: 50px;
+            animation: fadeIn 2s ease-out;
+            font-style: italic;
+            max-width: 800px;
+        }
+
+        .promise-emoji {
+            font-size: 5rem;
+            display: inline-block;
+            animation: heartbeat 2s ease-in-out infinite;
+            margin: 20px;
+        }
+
+        /* Scroll Button */
+        .scroll-button {
+            background: rgba(255,255,255,0.95);
+            color: #667eea;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .scroll-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #ffd6e0, #fff5f7);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-section h2 {
+            font-size: 2.8rem;
+            color: #667eea;
+            margin-bottom: 20px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .video-section .subtitle {
+            font-size: 1.3rem;
+            color: #764ba2;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(102,126,234,0.4);
+            animation: fadeIn 1.5s ease-out;
+            background: #000;
+            aspect-ratio: 16/9;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Promise Cards Section */
+        .promise-cards-section {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #ffecd2, #ffe6e6);
+            position: relative;
+            z-index: 2;
+        }
+
+        .promise-cards-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 20px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .promise-cards-section .subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #764ba2;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .promise-cards-section .instructions {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #e11d48;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .promise-cards-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 40px;
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            border-radius: 25px;
+            box-shadow: 0 30px 80px rgba(102,126,234,0.5);
+            perspective: 1000px;
+        }
+
+        .promise-card {
+            aspect-ratio: 1;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.6s;
+            font-size: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .promise-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .promise-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .promise-card.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .promise-front,
+        .promise-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backface-visibility: hidden;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .promise-front {
+            background: linear-gradient(135deg, #4a2c1f 0%, #667eea 100%);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .promise-back {
+            background: linear-gradient(135deg, #ffecd2 0%, #ffe6e6 100%);
+            transform: rotateY(180deg);
+            color: #2d1b4e;
+            font-weight: 600;
+            line-height: 1.4;
+            border: 3px solid #667eea;
+            font-size: 0.95rem;
+        }
+
+        /* Summary Section */
+        .summary-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            display: none;
+        }
+
+        .summary-section.visible {
+            display: block;
+        }
+
+        .summary-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.98);
+            padding: 60px 40px;
+            border-radius: 25px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .summary-box h2 {
+            font-size: 2.8rem;
+            color: #667eea;
+            margin-bottom: 30px;
+        }
+
+        .promise-message {
+            font-size: 1.4rem;
+            color: #2d1b4e;
+            line-height: 1.8;
+            margin: 30px 0;
+            padding: 30px;
+            background: linear-gradient(to right, #ffecd2, #ffe6e6);
+            border-radius: 15px;
+            font-weight: 600;
+        }
+
+        .copy-button {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .copy-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102,126,234,0.5);
+        }
+
+        .copy-button.copied {
+            background: linear-gradient(to right, #10b981, #059669);
+        }
+
+        .summary-box .note {
+            font-size: 1.3rem;
+            color: #e11d48;
+            margin-top: 30px;
+            font-weight: bold;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            color: #667eea;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .promise-cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Promises -->
+    <div class="promises-container" id="floating-promises"></div>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">← Back to Valentine's Week</a>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="promise-emoji">🤝</div>
+        <p class="date">February 11, 2026</p>
+        <h1>💝 Promise Day 💝</h1>
+        <p class="tagline">What promises can you make to Akshit? Pick the cards that resonate with your heart!</p>
+        <div class="promise-emoji">✨</div>
+        <a href="#video" class="scroll-button">Watch Our Promise 💕</a>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video">
+        <h2>✨ Our Promise Story ✨</h2>
+        <p class="subtitle">A special moment captured just for us...</p>
+        <div class="video-container">
+            <iframe src="https://drive.google.com/file/d/1X_Hee3i_0ubNsJTUJJQqcnKablD9pDZT/preview"
+                    allowfullscreen
+                    allow="autoplay">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Promise Cards Section -->
+    <section class="promise-cards-section" id="promise-cards">
+        <h2>💖 Choose Your Promises 💖</h2>
+        <p class="subtitle">Flip the cards to see the promises...</p>
+        <p class="instructions">⚠️ You can only flip 2 cards! Choose wisely 💝</p>
+        <div class="promise-cards-grid" id="promise-cards-grid"></div>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="summary-section" id="summary-section">
+        <div class="summary-box">
+            <h2>💖 Your Promises to Akshit 💖</h2>
+            <div class="promise-message" id="promise-message"></div>
+            <button class="copy-button" id="copy-button" onclick="copyToClipboard()">
+                📋 Copy to Share with Akshit
+            </button>
+            <p class="note">
+                ⚠️ Remember: These promises need to be followed! 💯<br>
+                Akshit will hold these close to his heart 💕
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // GOOGLE SHEETS TRACKING
+        const TRACKING_URL = 'https://script.google.com/macros/s/AKfycbxPpHTqMQbKB3Jvqo9dhUsJhtN_ki1SXYJ9nDgo-RaFKwWBUW50jfO7PcWSbPtXQyPH/exec';
+
+        const promises = [
+            { text: "I promise to always share my thoughts and feelings openly with you" },
+            { text: "I promise to truly listen when you speak, not just hear but understand" },
+            { text: "I promise to be your biggest cheerleader in all your dreams and goals" },
+            { text: "I promise to stand by your side through every challenge we face" },
+            { text: "I promise to be completely honest and transparent with you always" },
+            { text: "I promise to respect your boundaries, choices, and individuality" },
+            { text: "I promise to make quality time for us with daily video calls, no matter how busy life gets" },
+            { text: "I promise to have open and comfortable intimacy talks with you, sharing desires and feelings" },
+            { text: "I promise to care for your health and well-being, encouraging healthy habits and being there when you're unwell" }
+        ];
+
+        let selectedPromises = [];
+        let flippedCount = 0;
+        const MAX_FLIPS = 2;
+
+        // Shuffle promises
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        // Render promise cards
+        function renderCards() {
+            const shuffled = shuffleArray(promises);
+            const grid = document.getElementById('promise-cards-grid');
+            grid.innerHTML = '';
+
+            shuffled.forEach((promise, index) => {
+                const card = document.createElement('div');
+                card.className = 'promise-card';
+                card.id = `card-${index}`;
+
+                card.innerHTML = `
+                    <div class="promise-front">
+                        I promise that ___
+                    </div>
+                    <div class="promise-back" id="back-${index}">
+                        ${promise.text}
+                    </div>
+                `;
+
+                card.onclick = () => flipCard(index, promise.text);
+                grid.appendChild(card);
+            });
+        }
+
+        // Flip card
+        function flipCard(index, promiseText) {
+            const card = document.getElementById(`card-${index}`);
+
+            // If card is already flipped or disabled, do nothing
+            if (card.classList.contains('flipped') || card.classList.contains('disabled')) {
+                return;
+            }
+
+            // If we've reached max flips, don't allow more
+            if (flippedCount >= MAX_FLIPS) {
+                return;
+            }
+
+            // Flip the card
+            card.classList.add('flipped');
+            flippedCount++;
+
+            // Add to selected promises
+            selectedPromises.push(promiseText);
+
+            // If we've reached max flips, disable all unflipped cards and show summary
+            if (flippedCount >= MAX_FLIPS) {
+                disableUnflippedCards();
+                setTimeout(showSummary, 1000);
+            }
+        }
+
+        // Disable all unflipped cards
+        function disableUnflippedCards() {
+            document.querySelectorAll('.promise-card').forEach(card => {
+                if (!card.classList.contains('flipped')) {
+                    card.classList.add('disabled');
+                }
+            });
+        }
+
+        // Show summary
+        function showSummary() {
+            if (selectedPromises.length === 0) {
+                return;
+            }
+
+            // Send to Google Sheets
+            sendToGoogleSheets();
+
+            // Create the message
+            const message = `I am promising Akshit that ${selectedPromises.join(' and ')}.`;
+            document.getElementById('promise-message').textContent = message;
+
+            // Display summary
+            document.getElementById('summary-section').classList.add('visible');
+            document.getElementById('summary-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Copy to clipboard
+        function copyToClipboard() {
+            const message = document.getElementById('promise-message').textContent;
+            navigator.clipboard.writeText(message).then(() => {
+                const btn = document.getElementById('copy-button');
+                btn.textContent = '✅ Copied! Share with Akshit';
+                btn.classList.add('copied');
+
+                setTimeout(() => {
+                    btn.textContent = '📋 Copy to Share with Akshit';
+                    btn.classList.remove('copied');
+                }, 3000);
+            });
+        }
+
+        // Send to Google Sheets
+        async function sendToGoogleSheets() {
+            try {
+                // Send first promise
+                await fetch(TRACKING_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        timestamp: new Date().toISOString(),
+                        action: 'promise_day',
+                        question_id: '1',
+                        selected_answer: selectedPromises[0] || '',
+                        is_correct: '',
+                        attempt_number: '1'
+                    })
+                });
+
+                // Send second promise
+                await fetch(TRACKING_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        timestamp: new Date().toISOString(),
+                        action: 'promise_day',
+                        question_id: '2',
+                        selected_answer: selectedPromises[1] || '',
+                        is_correct: '',
+                        attempt_number: '1'
+                    })
+                });
+
+                console.log('✅ Promises sent to Google Sheets');
+            } catch (error) {
+                console.error('❌ Error sending to Google Sheets:', error);
+            }
+        }
+
+        // Create floating promises
+        function createFloatingPromises() {
+            const container = document.getElementById('floating-promises');
+            const emojis = ['🤝', '💝', '✨', '💖', '💕', '🌟'];
+
+            for (let i = 0; i < 10; i++) {
+                const promise = document.createElement('div');
+                promise.className = 'floating-promise';
+                promise.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                promise.style.left = Math.random() * 100 + '%';
+                promise.style.top = Math.random() * 100 + '%';
+                promise.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(promise);
+            }
+        }
+
+        // Initialize
+        renderCards();
+        createFloatingPromises();
+    </script>
+</body>
+</html>
