@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hug Day 🤗 | For Anshika</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Segoe UI', serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 25%, #ffecd2 50%, #fcb69f 75%, #ff9a9e 100%);
+            background-size: 400% 400%;
+            animation: hugGradient 20s ease infinite;
+            color: #7c2d12;
+        }
+
+        @keyframes hugGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes embrace {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        /* Floating Elements */
+        .hugs-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-hug {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.3;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, rgba(255,154,158,0.95) 0%, rgba(252,182,159,0.95) 100%);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            color: #fff;
+            text-shadow: 3px 3px 8px rgba(124,45,18,0.6);
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero .date {
+            font-size: 1.4rem;
+            color: #fff5ee;
+            font-weight: 600;
+            margin-bottom: 15px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero .tagline {
+            font-size: 1.7rem;
+            color: #ffe4e1;
+            margin-bottom: 50px;
+            animation: fadeIn 2s ease-out;
+            font-style: italic;
+            max-width: 800px;
+        }
+
+        .hug-emoji {
+            font-size: 5rem;
+            display: inline-block;
+            animation: embrace 2s ease-in-out infinite;
+            margin: 20px;
+        }
+
+        /* Scroll Button */
+        .scroll-button {
+            background: rgba(255,255,255,0.95);
+            color: #ff6b6b;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .scroll-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #ffe4e1, #fff5ee);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-section h2 {
+            font-size: 2.8rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .video-section .subtitle {
+            font-size: 1.3rem;
+            color: #e85d75;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(255,107,107,0.4);
+            animation: fadeIn 1.5s ease-out;
+            background: #000;
+            aspect-ratio: 16/9;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Poem Section */
+        .poem-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #fff5ee 0%, #ffe4e1 100%);
+            position: relative;
+            z-index: 2;
+        }
+
+        .poem-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ffffff 0%, #ffe4e1 100%);
+            padding: 60px 40px;
+            border-radius: 25px;
+            box-shadow: 0 25px 70px rgba(255,107,107,0.3);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #ff6b6b;
+        }
+
+        .poem-container::before {
+            content: '🤗';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 150px;
+            opacity: 0.1;
+            transform: rotate(25deg);
+        }
+
+        .poem-container h2 {
+            font-size: 2.8rem;
+            color: #ff6b6b;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .poem-text {
+            font-size: 1.9rem;
+            line-height: 2.3;
+            color: #7c2d12;
+            text-align: center;
+            font-family: 'Noto Sans Devanagari', 'Georgia', serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .poem-line {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .poem-line:nth-child(1) { animation-delay: 0.3s; }
+        .poem-line:nth-child(2) { animation-delay: 0.8s; }
+        .poem-line:nth-child(4) { animation-delay: 1.3s; }
+        .poem-line:nth-child(5) { animation-delay: 1.8s; }
+
+        .poem-divider {
+            text-align: center;
+            font-size: 2rem;
+            margin: 25px 0;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        .signature {
+            text-align: center;
+            font-size: 1.6rem;
+            color: #e11d48;
+            font-weight: bold;
+            margin-top: 40px;
+            font-style: italic;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #ffecd2, #ffe4e1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .quiz-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .quiz-section .subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #e85d75;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow: 0 30px 80px rgba(255,107,107,0.5);
+        }
+
+        .quiz-question {
+            font-size: 1.5rem;
+            color: #7c2d12;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .quiz-option {
+            background: linear-gradient(135deg, #ffe4e1 0%, #ffffff 100%);
+            border: 2px solid #ff9a9e;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .quiz-option:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(255,107,107,0.3);
+            border-color: #ff6b6b;
+        }
+
+        .quiz-option.selected {
+            background: linear-gradient(135deg, #ff9a9e 0%, #ff6b6b 100%);
+            color: white;
+            border-color: #ff6b6b;
+        }
+
+        .option-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: inherit;
+        }
+
+        .option-description {
+            font-size: 1rem;
+            color: inherit;
+            opacity: 0.9;
+        }
+
+        .custom-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            border: 2px solid #ff9a9e;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-family: inherit;
+        }
+
+        .custom-input:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255,107,107,0.1);
+        }
+
+        .submit-button {
+            background: linear-gradient(to right, #ff9a9e, #ff6b6b);
+            color: white;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            box-shadow: 0 15px 35px rgba(255,107,107,0.4);
+            transition: all 0.3s ease;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(255,107,107,0.5);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Summary Section */
+        .summary-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #ff6b6b 100%);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            display: none;
+        }
+
+        .summary-section.visible {
+            display: block;
+        }
+
+        .summary-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.98);
+            padding: 60px 40px;
+            border-radius: 25px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .summary-box h2 {
+            font-size: 2.8rem;
+            color: #ff6b6b;
+            margin-bottom: 30px;
+        }
+
+        .summary-message {
+            font-size: 1.4rem;
+            color: #7c2d12;
+            line-height: 1.8;
+            margin: 30px 0;
+            padding: 30px;
+            background: linear-gradient(to right, #ffe4e1, #fff5ee);
+            border-radius: 15px;
+            font-weight: 600;
+        }
+
+        .summary-box .note {
+            font-size: 1.3rem;
+            color: #e11d48;
+            margin-top: 30px;
+            font-weight: bold;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        .copy-button {
+            background: linear-gradient(to right, #ff9a9e, #ff6b6b);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .copy-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255,107,107,0.5);
+        }
+
+        .copy-button.copied {
+            background: linear-gradient(to right, #10b981, #059669);
+        }
+
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            color: #ff6b6b;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .poem-text {
+                font-size: 1.5rem;
+                line-height: 2;
+            }
+            .poem-container {
+                padding: 40px 25px;
+            }
+            .poem-container h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hugs -->
+    <div class="hugs-container" id="floating-hugs"></div>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">← Back to Valentine's Week</a>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hug-emoji">🤗</div>
+        <p class="date">February 12, 2026</p>
+        <h1>🤗 Hug Day 💕</h1>
+        <p class="tagline">In your arms, I find peace. In your embrace, I find home.</p>
+        <div class="hug-emoji">💝</div>
+        <a href="#video" class="scroll-button">Watch Our Moment 💕</a>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video">
+        <h2>✨ Our Embrace ✨</h2>
+        <p class="subtitle">Every hug tells a story...</p>
+        <div class="video-container">
+            <iframe src="https://drive.google.com/file/d/1a32sdREdBcNCFcfDWRkBfS5_YE4YF4h6/preview"
+                    allowfullscreen
+                    allow="autoplay">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Poem Section -->
+    <section class="poem-section">
+        <div class="poem-container">
+            <h2>💝 तेरी बाहों में 💝</h2>
+            <div class="poem-text">
+                <p class="poem-line">लफ्ज़ कम पड़ जाते हैं, जज़्बात समझाने के लिए,</p>
+                <p class="poem-line">बस तेरी बाहें काफी हैं, अक्षित को सुकून दिलाने के लिए।</p>
+                <div class="poem-divider">🤗</div>
+                <p class="poem-line">सारी दुनिया का शोर थम जाता है एक पल में,</p>
+                <p class="poem-line">जब अंशिका गले लगा लेती है, सब भुलाने के लिए।</p>
+            </div>
+            <p class="signature">- अक्षित 💕</p>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section" id="quiz">
+        <h2>💖 Your Perfect Hug 💖</h2>
+        <p class="subtitle">When we meet next time, what type of hug do you want?</p>
+        <div class="quiz-container">
+            <p class="quiz-question">Choose one or more hugs that speak to your heart... 🤗<br><small style="font-size: 0.9rem; color: #e85d75;">(You can select multiple options!)</small></p>
+            <div class="quiz-options" id="quiz-options">
+                <div class="quiz-option" data-value="Bear Hug">
+                    <div class="option-title">🐻 Bear Hug</div>
+                    <div class="option-description">Tight, warm, and all-encompassing - like you never want to let go</div>
+                </div>
+                <div class="quiz-option" data-value="Back Hug">
+                    <div class="option-title">💫 Back Hug</div>
+                    <div class="option-description">Wrapped from behind - protective, intimate, and surprising</div>
+                </div>
+                <div class="quiz-option" data-value="Long Hug">
+                    <div class="option-title">⏰ Long Hug</div>
+                    <div class="option-description">Extended embrace - savoring every moment, no rush to let go</div>
+                </div>
+                <div class="quiz-option" data-value="Forehead Kiss Hug">
+                    <div class="option-title">😘 Forehead Kiss Hug</div>
+                    <div class="option-description">Gentle hug with a tender forehead kiss - pure love and care</div>
+                </div>
+                <div class="quiz-option" data-value="Lifting Hug">
+                    <div class="option-title">🎉 Lifting Hug</div>
+                    <div class="option-description">Swept off your feet - playful, exciting, and full of joy</div>
+                </div>
+                <div class="quiz-option" data-value="other">
+                    <div class="option-title">✨ Other (Tell me!)</div>
+                    <div class="option-description">Describe your perfect hug...</div>
+                    <input type="text" class="custom-input" id="custom-answer" placeholder="Type your answer here..." style="display: none;">
+                </div>
+            </div>
+            <button class="submit-button" id="submit-btn" onclick="submitAnswer()">Submit Your Choice 💕</button>
+        </div>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="summary-section" id="summary-section">
+        <div class="summary-box">
+            <h2>🤗 I Can't Wait! 🤗</h2>
+            <div class="summary-message" id="summary-message"></div>
+            <button class="copy-button" id="copy-button" onclick="copyToClipboard()">
+                📋 Copy to Share with Akshit
+            </button>
+            <p class="note">
+                💕 Akshit is already counting down to that moment! 💕<br>
+                Get ready for the warmest hug ever! 🤗
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // GOOGLE SHEETS TRACKING
+        const TRACKING_URL = 'https://script.google.com/macros/s/AKfycbxPpHTqMQbKB3Jvqo9dhUsJhtN_ki1SXYJ9nDgo-RaFKwWBUW50jfO7PcWSbPtXQyPH/exec';
+
+        let selectedAnswers = [];
+
+        // Handle option selection
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Get the value
+                const value = this.getAttribute('data-value');
+
+                // If "other" is selected, show the input
+                const customInput = document.getElementById('custom-answer');
+                if (value === 'other') {
+                    // Toggle selection for "other" option
+                    if (this.classList.contains('selected')) {
+                        this.classList.remove('selected');
+                        customInput.style.display = 'none';
+                        customInput.value = '';
+                    } else {
+                        this.classList.add('selected');
+                        customInput.style.display = 'block';
+                        customInput.focus();
+                    }
+                } else {
+                    // Toggle selection for regular options
+                    this.classList.toggle('selected');
+                }
+            });
+        });
+
+        // Submit answer
+        async function submitAnswer() {
+            const submitBtn = document.getElementById('submit-btn');
+
+            // Add immediate visual feedback
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting... 💕';
+            submitBtn.style.opacity = '0.7';
+
+            // Collect all selected answers
+            selectedAnswers = [];
+            document.querySelectorAll('.quiz-option.selected').forEach(option => {
+                const value = option.getAttribute('data-value');
+                if (value === 'other') {
+                    const customValue = document.getElementById('custom-answer').value.trim();
+                    if (customValue) {
+                        selectedAnswers.push('Other: ' + customValue);
+                    }
+                } else {
+                    selectedAnswers.push(value);
+                }
+            });
+
+            // Validation
+            if (selectedAnswers.length === 0) {
+                alert('Please select at least one hug type! 🤗');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Your Choice 💕';
+                submitBtn.style.opacity = '1';
+                return;
+            }
+
+            // Check if "other" was selected but no text entered
+            const otherSelected = document.querySelector('.quiz-option[data-value="other"]').classList.contains('selected');
+            const customValue = document.getElementById('custom-answer').value.trim();
+            if (otherSelected && !customValue) {
+                alert('Please type your custom answer! 💕');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Your Choice 💕';
+                submitBtn.style.opacity = '1';
+                return;
+            }
+
+            // Show summary immediately (don't wait!)
+            showSummary();
+
+            // Send to Google Sheets in background (no await)
+            const finalAnswer = selectedAnswers.join(' and ');
+            fetch(TRACKING_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    timestamp: new Date().toISOString(),
+                    action: 'hug_day',
+                    question_id: 'hug_type',
+                    selected_answer: finalAnswer,
+                    is_correct: '',
+                    attempt_number: '1'
+                })
+            }).then(() => {
+                console.log('✅ Answer sent to Google Sheets');
+            }).catch(error => {
+                console.error('❌ Error sending to Google Sheets:', error);
+            });
+        }
+
+        // Show summary
+        function showSummary() {
+            const hugList = selectedAnswers.join(' and ');
+            const message = `Anshika wants: ${hugList}! 🤗💕\n\nAkshit is already preparing the most perfect, warm, loving hug just for you!`;
+            document.getElementById('summary-message').textContent = message;
+            document.getElementById('summary-section').classList.add('visible');
+            document.getElementById('summary-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Copy to clipboard
+        function copyToClipboard() {
+            const message = document.getElementById('summary-message').textContent;
+            navigator.clipboard.writeText(message).then(() => {
+                const btn = document.getElementById('copy-button');
+                btn.textContent = '✅ Copied! Share with Akshit';
+                btn.classList.add('copied');
+
+                setTimeout(() => {
+                    btn.textContent = '📋 Copy to Share with Akshit';
+                    btn.classList.remove('copied');
+                }, 3000);
+            });
+        }
+
+        // Create floating hugs
+        function createFloatingHugs() {
+            const container = document.getElementById('floating-hugs');
+            const emojis = ['🤗', '💕', '💝', '💖', '🤍', '❤️'];
+
+            for (let i = 0; i < 10; i++) {
+                const hug = document.createElement('div');
+                hug.className = 'floating-hug';
+                hug.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                hug.style.left = Math.random() * 100 + '%';
+                hug.style.top = Math.random() * 100 + '%';
+                hug.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(hug);
+            }
+        }
+
+        // Initialize
+        createFloatingHugs();
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
